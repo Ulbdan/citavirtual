@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Una cita con mi Amorcitooo ❤️</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #ffe1eb, #fff7fa, #f8ddeb);
+    min-height: 100vh;
+    color: #4a2635;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   CORAZONES
+========================= */
+
+.heart-floating {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: floatHeart 7s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   PANTALLA INICIAL
+========================= */
+
+#opening {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+}
+
+.opening-card {
+    background: rgba(255,255,255,0.93);
+    padding: 55px 30px;
+    border-radius: 35px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(120,50,80,0.18);
+    animation: appear 1.2s ease;
+}
+
+.big-heart {
+    font-size: 70px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.opening-card h1 {
+    font-size: 42px;
+    color: #b83b68;
+    margin: 20px 0;
+}
+
+.opening-card p {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.open-button,
+.date-button {
+    border: none;
+    background: #d94f7b;
+    color: white;
+    padding: 16px 35px;
+    border-radius: 40px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 0 8px 20px rgba(217,79,123,.25);
+}
+
+.open-button:hover,
+.date-button:hover {
+    background: #b83b68;
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+#main {
+    display: none;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 18px 60px;
+    animation: appear 1s ease;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.invitation {
+    background: rgba(255,255,255,.92);
+    border-radius: 30px;
+    padding: 50px 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(120,50,80,.14);
+}
+
+.invitation h1 {
+    color: #b83b68;
+    font-size: 38px;
+    margin: 15px 0;
+}
+
+.invitation p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: auto;
+}
+
+.date-button {
+    margin-top: 30px;
+}
+
+
+/* =========================
+   SECCIÓN PELÍCULAS
+========================= */
+
+#moviesSection {
+    display: none;
+    margin-top: 45px;
+    animation: appear .7s ease;
+}
+
+.question {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.question h2 {
+    color: #a52f5c;
+    font-size: 29px;
+    margin-bottom: 10px;
+}
+
+.question p {
+    font-size: 16px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+.movie {
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(120,50,80,.12);
+    transition: .3s;
+    border: 2px solid transparent;
+}
+
+.movie:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(120,50,80,.2);
+    border-color: #f2b4ca;
+}
+
+.movie h3 {
+    color: #b83b68;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+
+.year {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+.synopsis {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+}
+
+button.choose {
+    width: 100%;
+    border: none;
+    padding: 13px;
+    border-radius: 30px;
+    background: #d94f7b;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+button.choose:hover {
+    background: #b83b68;
+    transform: scale(1.02);
+}
+
+
+/* =========================
+   CLÁSICA
+========================= */
+
+.classic {
+    background: linear-gradient(135deg, #fffdf7, #fff0d9);
+    border: 2px solid #e8c98c;
+}
+
+.classic h3 {
+    color: #9b6b20;
+}
+
+.badge {
+    display: inline-block;
+    background: #f3d99f;
+    color: #73501a;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   OPCIÓN DANI
+========================= */
+
+.special {
+    background: linear-gradient(135deg, #fff, #fff0f5);
+    border: 2px dashed #df83a4;
+}
+
+.special h3 {
+    color: #9f3159;
+}
+
+
+/* =========================
+   RESULTADO
+========================= */
+
+#result {
+    display: none;
+    margin-top: 35px;
+    background: white;
+    border-radius: 28px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(120,50,80,.15);
+    animation: appear .7s ease;
+}
+
+#result h2 {
+    color: #b83b68;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.selected-movie {
+    font-size: 20px;
+    color: #a52f5c;
+    font-weight: bold;
+}
+
+.love-message {
+    margin-top: 20px;
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BOTÓN FINAL
+========================= */
+
+.ready-box {
+    margin-top: 35px;
+    padding: 28px 20px;
+    background: linear-gradient(135deg, #fff0f5, #fff8fa);
+    border-radius: 25px;
+    border: 1px solid #f3bfd0;
+}
+
+.ready-box h3 {
+    color: #a52f5c;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.ready-box p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.ready-button {
+    border: none;
+    background: #d94f7b;
+    color: white;
+    padding: 16px 30px;
+    border-radius: 40px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 8px 20px rgba(217,79,123,.25);
+    transition: .3s;
+}
+
+.ready-button:hover {
+    background: #b83b68;
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   PANTALLA FINAL
+========================= */
+
+#finalScreen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #fff4f7 0%,
+            #ffdce8 45%,
+            #f5b5ca 100%
+        );
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 25px 15px;
+}
+
+#finalScreen.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 100%);
+
+    max-height: calc(100vh - 50px);
+    max-height: calc(100dvh - 50px);
+
+    overflow-y: auto;
+
+    background: rgba(255,255,255,.94);
+
+    border-radius: 30px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(120,50,80,.20);
+
+    animation: finalAppear 1s ease;
+
+    scrollbar-width: thin;
+    scrollbar-color: #e58aa5 transparent;
+}
+
+.final-content::-webkit-scrollbar {
+    width: 5px;
+}
+
+.final-content::-webkit-scrollbar-thumb {
+    background: #e58aa5;
+    border-radius: 10px;
+}
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+        transform: scale(.9) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.final-heart {
+    font-size: clamp(55px, 12vw, 85px);
+    animation: finalPulse 1.4s infinite;
+    margin-bottom: 5px;
+}
+
+@keyframes finalPulse {
+
+    0%,100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+.final-title {
+    color: #c52f5c;
+    font-size: clamp(42px, 9vw, 72px);
+    line-height: 1;
+    margin: 5px 0 18px;
+    letter-spacing: 1px;
+}
+
+.final-subtitle {
+    color: #a52f5c;
+    font-size: clamp(22px, 5vw, 31px);
+    line-height: 1.25;
+    margin-bottom: 22px;
+}
+
+.final-message {
+    max-width: 550px;
+    margin: auto;
+
+    font-size: clamp(16px, 3.8vw, 18px);
+
+    line-height: 1.65;
+}
+
+.signature {
+    margin-top: 28px;
+
+    color: #b83b68;
+
+    font-size: clamp(16px, 4vw, 20px);
+
+    font-style: italic;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   CORAZONES DE LA PANTALLA FINAL
+========================= */
+
+.final-heart-floating {
+    position: fixed;
+    bottom: -50px;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    z-index: 101;
+
+    opacity: 0;
+
+    animation: finalFloat linear forwards;
+}
+
+@keyframes finalFloat {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .75;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #8a6170;
+    font-size: 14px;
+}
+
+
+/* =========================
+   CELULARES
+========================= */
+
+@media (max-width: 600px) {
+
+    #opening {
+        padding: 18px;
+    }
+
+    .opening-card {
+        padding: 40px 20px;
+        border-radius: 28px;
+    }
+
+    .opening-card h1 {
+        font-size: 34px;
+    }
+
+    .opening-card p {
+        font-size: 16px;
+    }
+
+    #main {
+        padding: 25px 12px 45px;
+    }
+
+    .invitation {
+        padding: 35px 18px;
+        border-radius: 25px;
+    }
+
+    .invitation h1 {
+        font-size: 32px;
+    }
+
+    .invitation p {
+        font-size: 16px;
+    }
+
+    .movies {
+        grid-template-columns: 1fr;
+    }
+
+    #result {
+        padding: 30px 18px;
+    }
+
+    .selected-movie {
+        font-size: 18px;
+    }
+
+    .ready-box {
+        padding: 23px 15px;
+    }
+
+
+    /* PANTALLA FINAL EN CELULAR */
+
+    #finalScreen {
+        padding: 12px 10px;
+        align-items: center;
+    }
+
+    .final-content {
+        max-height: calc(100vh - 24px);
+        max-height: calc(100dvh - 24px);
+
+        padding: 25px 17px;
+
+        border-radius: 24px;
+    }
+
+    .final-heart {
+        font-size: 55px;
+    }
+
+    .final-title {
+        font-size: clamp(40px, 13vw, 60px);
+        margin-bottom: 14px;
+    }
+
+    .final-subtitle {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+
+    .final-message {
+        font-size: 15.5px;
+        line-height: 1.55;
+    }
+
+    .signature {
+        margin-top: 22px;
+        font-size: 16px;
+    }
+}
+
+
+/* =========================
+   CELULARES MUY PEQUEÑOS
+========================= */
+
+@media (max-height: 650px) {
+
+    #finalScreen {
+        align-items: flex-start;
+    }
+
+    .final-content {
+        margin: 8px 0;
+        max-height: calc(100dvh - 16px);
+        padding: 20px 15px;
+    }
+
+    .final-heart {
+        font-size: 45px;
+    }
+
+    .final-title {
+        font-size: 38px;
+    }
+
+    .final-subtitle {
+        font-size: 19px;
+    }
+
+    .final-message {
+        font-size: 14px;
+        line-height: 1.45;
+    }
+
+    .signature {
+        margin-top: 17px;
+        font-size: 15px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- CORAZONES -->
+
+<div class="heart-floating" style="left:10%; animation-delay:0s;">❤️</div>
+<div class="heart-floating" style="left:25%; animation-delay:2s;">💕</div>
+<div class="heart-floating" style="left:45%; animation-delay:4s;">💗</div>
+<div class="heart-floating" style="left:65%; animation-delay:1s;">❤️</div>
+<div class="heart-floating" style="left:82%; animation-delay:3s;">💕</div>
+
+
+<!-- =========================
+     PANTALLA INICIAL
+========================= -->
+
+<section id="opening">
+
+    <div class="opening-card">
+
+        <div class="big-heart">❤️</div>
+
+        <h1>Hola, mi Princesa ✨</h1>
+
+        <p>
+            He preparado algo pequeñito para ti...
+            <br><br>
+            ¿Te gustaría descubrir qué es? 🥹
+        </p>
+
+        <button class="open-button" onclick="openInvitation()">
+            💌 Abrir invitación
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INVITACIÓN
+========================= -->
+
+<main id="main">
+
+    <section class="invitation">
+
+        <div style="font-size:55px;">🎬🍿❤️</div>
+
+        <h1>¿Tenemos una cita?</h1>
+
+        <p>
+
+            Mi amor, como hoy no podemos estar juntitos físicamente,
+            quiero invitarte a una pequeña cita virtual.
+
+            <br><br>
+
+            Tú, yo, canguilito,
+            muchas risas y una película para ver juntos.
+
+            <br><br>
+
+            Porque aunque estemos a kilómetros de distancia,
+            siempre podemos encontrar una forma de tener
+            un ratito solo para nosotros. ❤️
+
+        </p>
+
+
+        <!-- BOTÓN -->
+
+        <button class="date-button" onclick="showMovies()">
+            ✨ Nuestra cita virtual ✨
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PELÍCULAS
+    ========================= -->
+
+    <section id="moviesSection">
+
+        <div class="question">
+
+            <h2>Ahora viene la decisión importante... 👀</h2>
+
+            <p>
+                Vamos a ver una romántica y a reirnos también te parece?
+                Le pregunté a chatcito sobre algunas opciones,
+                pero al final tú decides mi preciosa. ❤️
+            </p>
+
+        </div>
+
+
+        <section class="movies">
+
+
+            <!-- 1 -->
+
+            <div class="movie">
+
+                <h3>🌴 People we meet on vacation</h3>
+
+                <div class="year">
+                    2026 · Romance / Comedia
+                </div>
+
+                <p class="synopsis">
+
+                    Poppy y Alex son dos amigos muy diferentes
+                    que llevan años compartiendo viajes y aventuras.
+
+                    <br><br>
+
+                    Pero después de tanto tiempo juntos,
+                    comienzan a preguntarse si lo que sienten
+                    el uno por el otro podría ser algo más
+                    que amistad. ❤️
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('Gente que conocemos en vacaciones')">
+
+                    💕 Elegir esta
+
+                </button>
+
+            </div>
+
+
+            <!-- 2 -->
+
+            <div class="movie">
+
+                <h3>💼 Office Romance</h3>
+
+                <div class="year">
+                    2026 · Romance / Comedia
+                </div>
+
+                <p class="synopsis">
+
+                    Dos compañeros de trabajo descubren una
+                    atracción inesperada mientras intentan
+                    mantener su relación en secreto.
+
+                    <br><br>
+
+                    Entre situaciones divertidas, química
+                    y sentimientos inesperados,
+                    las cosas comienzan a complicarse. 💕
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('Office Romance')">
+
+                    💕 Elegir esta
+
+                </button>
+
+            </div>
+
+
+            <!-- 3 -->
+
+            <div class="movie">
+
+                <h3>😂 Yoh! Bestie</h3>
+
+                <div class="year">
+                    2026 · Romance / Comedia
+                </div>
+
+                <p class="synopsis">
+
+                    Una chica comienza a cuestionarse sus
+                    sentimientos cuando su mejor amigo
+                    regresa comprometido.
+
+                    <br><br>
+
+                    Lo que parecía una amistad sencilla
+                    empieza a convertirse en una historia
+                    llena de celos, descubrimientos
+                    y sentimientos inesperados. 💗
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('¡Uf! ¿Solo amigos?')">
+
+                    💕 Elegir esta
+
+                </button>
+
+            </div>
+
+
+            <!-- 4 -->
+
+            <div class="movie">
+
+                <h3>🇫🇷 The wrong Paris</h3>
+
+                <div class="year">
+                    2025 · Romance / Comedia
+                </div>
+
+                <p class="synopsis">
+
+                    Una joven termina involucrada en una situación
+                    romántica inesperada mientras descubre que
+                    el amor puede aparecer en los lugares
+                    y momentos que menos imagina. ✨
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('El otro París')">
+
+                    💕 Elegir esta
+
+                </button>
+
+            </div>
+
+
+            <!-- CLÁSICA -->
+
+            <div class="movie classic">
+
+                <span class="badge">
+                    ✨ OPCIÓN CLÁSICA ✨
+                </span>
+
+                <h3>🌸 Dan in Real Life</h3>
+
+                <div class="year">
+                    2007 · Romance / Comedia · Disney+
+                </div>
+
+                <p class="synopsis">
+
+                    Dan parece saberlo todo sobre las relaciones...
+                    excepto cómo manejar la suya.
+
+                    <br><br>
+
+                    Durante una reunión familiar conoce a Marie
+                    y siente una conexión inmediata.
+
+                    <br><br>
+
+                    El pequeño problema:
+                    descubre que Marie es la nueva novia de
+                    su hermano. ❤️😂
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('Dan in Real Life')">
+
+                    🎞️ Elegir la clásica
+
+                </button>
+
+            </div>
+
+
+            <!-- DANI ELIGE -->
+
+            <div class="movie special">
+
+                <h3>💭 Una peli que la tengas pendiente de ver</h3>
+
+                <div class="year">
+                    Una opción especial para mi amor
+                </div>
+
+                <p class="synopsis">
+
+                    ¿Ninguna de estas te convence?
+
+                    <br><br>
+
+                    No pasa absolutamente nada. ❤️
+
+                    <br><br>
+
+                    Si hay alguna película que siempre hayas
+                    querido ver conmigo, esta puede ser
+                    nuestra película de esta noche.
+
+                    <br><br>
+
+                    <strong>
+                        Tú eliges. 🥰
+                    </strong>
+
+                </p>
+
+                <button class="choose"
+                    onclick="chooseMovie('La película de mi amorcito')">
+
+                    ✨ Tú eliges
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             RESULTADO
+        ========================= -->
+
+        <section id="result">
+
+            <h2>🥹❤️ ¡Tenemos película!</h2>
+
+            <p class="selected-movie" id="selected"></p>
+
+            <p class="love-message">
+
+                Perfecto, mi amor. 🥰
+
+                <br><br>
+
+                Ahora solo falta preparar el canguilito 🍿,
+                acomodarnos y darle <strong>play juntos</strong>. 🎬
+
+                <br><br>
+
+                Y recuerda...
+
+                <br><br>
+
+                <strong>
+                    mi parte favorita de la película
+                    siempre va a ser verla contigo. ❤️
+                </strong>
+
+            </p>
+
+
+            <!-- =========================
+                 PREGUNTA FINAL
+            ========================= -->
+
+            <div class="ready-box">
+
+                <h3>
+                    Y ahora dime una cosa... 🥹❤️
+                </h3>
+
+                <p>
+                    ¿Estás lista para nuestra cita?
+                </p>
+
+                <button class="ready-button" onclick="showFinal()">
+                    ❤️ SÍ, ESTOY LISTA ❤️
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </section>
+
+
+    <div class="footer">
+
+        Hecho con muchísimo amor por tu loquito enamorado ✨❤️
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     PANTALLA FINAL
+========================= -->
+
+<section id="finalScreen">
+
+    <div class="final-content">
+
+        <div class="final-heart">
+            ❤️
+        </div>
+
+        <h1 class="final-title">
+            TE AMO
+        </h1>
+
+        <h2 class="final-subtitle">
+            Eres el amor de mi vida, mi princesa ✨
+        </h2>
+
+        <p class="final-message">
+
+            Gracias por ser tú. ❤️
+
+            <br><br>
+
+            Gracias por cada momento,
+            cada sonrisa, cada abrazo,
+            cada aventura y cada recuerdo
+            que hemos construido juntos.
+
+            <br><br>
+
+            No importa la distancia,
+            siempre voy a encontrar una forma
+            de estar cerquita de ti. ❤️
+
+            <br><br>
+
+            Te amo hoy, mañana y todos los días
+            que nos quedan por vivir juntos.
+
+        </p>
+
+        <div class="signature">
+
+            Con todo mi amor,<br>
+            tu loquito enamorado ✨❤️
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+function openInvitation() {
+
+    document.getElementById("opening").style.display = "none";
+
+    document.getElementById("main").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+function showMovies() {
+
+    const movies = document.getElementById("moviesSection");
+
+    movies.style.display = "block";
+
+    setTimeout(() => {
+
+        movies.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 100);
+
+}
+
+
+function chooseMovie(movie) {
+
+    const result = document.getElementById("result");
+
+    document.getElementById("selected").innerHTML =
+        `Has elegido <strong>${movie}</strong> 💕`;
+
+    result.style.display = "block";
+
+    setTimeout(() => {
+
+        result.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+
+    }, 100);
+
+}
+
+
+/* =========================
+   PANTALLA FINAL
+========================= */
+
+function showFinal() {
+
+    const finalScreen =
+        document.getElementById("finalScreen");
+
+    finalScreen.classList.add("active");
+
+    /*
+       Evita que la página de atrás
+       siga desplazándose.
+    */
+    document.body.style.overflow = "hidden";
+
+    /*
+       Comenzamos arriba del mensaje.
+    */
+    finalScreen.scrollTop = 0;
+
+    createFinalHearts();
+
+}
+
+
+/* =========================
+   CORAZONES FINALES
+========================= */
+
+function createFinalHearts() {
+
+    const finalScreen =
+        document.getElementById("finalScreen");
+
+    /*
+       Limpiamos corazones anteriores
+       por si se vuelve a abrir.
+    */
+    document
+        .querySelectorAll(".final-heart-floating")
+        .forEach(heart => heart.remove());
+
+
+    const hearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💓",
+        "💞"
+    ];
+
+
+    for (let i = 0; i < 18; i++) {
+
+        const heart =
+            document.createElement("div");
+
+        heart.className =
+            "final-heart-floating";
+
+        heart.innerHTML =
+            hearts[Math.floor(
+                Math.random() * hearts.length
+            )];
+
+        heart.style.left =
+            Math.random() * 100 + "%";
+
+        heart.style.animationDuration =
+            (5 + Math.random() * 6) + "s";
+
+        heart.style.animationDelay =
+            Math.random() * 4 + "s";
+
+        heart.style.fontSize =
+            (18 + Math.random() * 22) + "px";
+
+
+        finalScreen.appendChild(heart);
+
+    }
+
+}
+
+</script>
+
+
+</body>
+</html>
